@@ -1,9 +1,14 @@
 /* Inherit base styles from index.css */
 @import url('index.css');
 
+.main-header {
+  margin-bottom: 200px;
+}
 .store-container {
   display: flex;
-  padding: 100px 5% 50px;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 5% 50px;
   background-color: #f8f9fa;
 }
 
@@ -85,6 +90,7 @@
 
 .products-section {
   flex: 1;
+  margin-top: 100px;
 }
 
 .products-header {

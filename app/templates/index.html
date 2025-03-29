@@ -15,25 +15,31 @@
 </head>
 
 <body>
-  <header>
-    <div class="logo">MINIMAL</div>
-    <nav>
-      <ul>
-        <li><a href="{{ url_for('index') }}">Inicio</a></li>
-        <li><a href="{{ url_for('store') }}">Tienda</a></li>
-        <li><a href="#">Colecciones</a></li>
-        <li><a href="#">Sobre Nosotros</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="cart-icon">🛒</div>
+  <header class="main-header">
+    <div class="mini-header">
+      <div class="admin-link">
+        <a href="{{ url_for('login') }}">Acceso Admin</a>
+      </div>
+    </div>
+    <div class="primary-header">
+      <div class="logo">MINIMAL</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Inicio</a></li>
+          <li><a href="{{ url_for('store') }}">Tienda</a></li>
+            <li><a href="#footer-about">Sobre Nosotros</a></li>
+            <li><a href="#footer-contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">🛒</div>
+    </div>
   </header>
   
   <section class="home">
     <div class="home-content">
       <h1>Estilo Streetwear para todos</h1>
       <p>Explora nuestra colección de ropa y accesorios streetwear diseñados para destacar en cualquier ocasión.</p>
-      <a href="#" class="btn">Explorar Ahora</a>
+      <a href="{{ url_for('store') }}" class="btn">Explorar Ahora</a>
     </div>
     <div class="home-image">
       <img src="{{ url_for('static', filename='/images/pexels-richard-taveira-426027508-17825341.jpg') }}" alt="Diseño minimalista" style="width: 100%; height: 100%; object-fit: cover;">
@@ -86,6 +92,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </section>
   
@@ -144,47 +151,6 @@
     </form>
   </section>
   
-  <!-- <section class="instagram">
-    <div class="instagram-feed">
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 1" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 2" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 3" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 4" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 5" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-      <div class="instagram-item">
-        <img src="/api/placeholder/250/250" alt="Instagram 6" class="instagram-img">
-        <div class="instagram-overlay">
-          <div class="instagram-icon">📸</div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  
   <footer>
     <div class="footer-content">
       <div class="footer-about">
@@ -205,8 +171,7 @@
         <h4>Enlaces Rápidos</h4>
         <ul>
           <li><a href="#">Inicio</a></li>
-          <li><a href="#">Tienda</a></li>
-          <li><a href="#">Colecciones</a></li>
+          <li><a href="{{ url_for('store') }}">Tienda</a></li>
           <li><a href="#">Sobre Nosotros</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
@@ -238,6 +203,25 @@
       &copy; 2025 MINIMAL. Todos los derechos reservados.
     </div>
   </footer>
+
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2>Tu Carrito</h2>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-price">$0.00</span>
+      </div>
+      <button class="checkout-btn">Proceder al Pago</button>
+    </div>
+  </div>
+
+  <div class="cart-overlay"></div>
 
   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>

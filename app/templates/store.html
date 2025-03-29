@@ -15,18 +15,24 @@
 </head>
 
 <body>
-  <header>
-    <div class="logo">MINIMAL</div>
-    <nav>
-      <ul>
-        <li><a href="{{ url_for('index') }}">Inicio</a></li>
-        <li><a href="{{ url_for('store') }}">Tienda</a></li>
-        <li><a href="#">Colecciones</a></li>
-        <li><a href="#">Sobre Nosotros</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="cart-icon">🛒</div>
+  <header class="main-header">
+    <div class="mini-header">
+      <div class="admin-link">
+        <a href="{{ url_for('login') }}">Acceso Admin</a>
+      </div>
+    </div>
+    <div class="primary-header">
+      <div class="logo">MINIMAL</div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Inicio</a></li>
+          <li><a href="{{ url_for('store') }}">Tienda</a></li>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">🛒</div>
+    </div>
   </header>
 
   <section class="store-container">
@@ -88,13 +94,14 @@
       </div>
 
       <div class="products-grid">
+
         <div class="product-card">
           <div class="product-img">
-            <img src="/api/placeholder/400/300" alt="Pantalon Oversize">
+            <img src="{{ url_for('static', filename='/images/blazer.png') }}" alt="Nike Blazer Mid '77">
             <div class="quick-view">Vista Rápida</div>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Pantalon Oversize</h3>
+            <h3 class="product-title">Nike Blazer Mid '77</h3>
             <div class="product-price">
               <span>$89.99</span>
               <span class="add-to-cart">+</span>
@@ -104,11 +111,11 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="/api/placeholder/400/300" alt="Jordan 3">
+            <img src="{{ url_for('static', filename='/images/BarcelonaJersey.png') }}"  alt="FC Barcelona local 2024/25 Stadium">
             <div class="quick-view">Vista Rápida</div>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Jordan 3 Retro-Xtentacion</h3>
+            <h3 class="product-title">FC Barcelona local 2024/25 Stadium</h3>
             <div class="product-price">
               <span>$129.99</span>
               <span class="add-to-cart">+</span>
@@ -119,13 +126,13 @@
         <!-- Repeat product cards to fill the grid -->
         <div class="product-card">
           <div class="product-img">
-            <img src="/api/placeholder/400/300" alt="Sudadera Minimalista">
+            <img src="{{ url_for('static', filename='/images/off-white-woolgab-slim-cargo.png') }}"  alt="woolgab slim cargo">
             <div class="quick-view">Vista Rápida</div>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Sudadera Minimalista</h3>
+            <h3 class="product-title">Woolgab slim cargo - OffWhite</h3>
             <div class="product-price">
-              <span>$79.99</span>
+              <span>$209.99</span>
               <span class="add-to-cart">+</span>
             </div>
           </div>
@@ -133,13 +140,13 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="/api/placeholder/400/300" alt="Zapatillas Urbanas">
+            <img src="{{ url_for('static', filename='/images/off-white-woolgab-slim-cargo.png') }}"  alt="woolgab slim cargo">
             <div class="quick-view">Vista Rápida</div>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Zapatillas Urbanas</h3>
+            <h3 class="product-title">Woolgab slim cargo - OffWhite</h3>
             <div class="product-price">
-              <span>$149.99</span>
+              <span>$209.99</span>
               <span class="add-to-cart">+</span>
             </div>
           </div>
@@ -180,8 +187,7 @@
         <h4>Enlaces Rápidos</h4>
         <ul>
           <li><a href="#">Inicio</a></li>
-          <li><a href="#">Tienda</a></li>
-          <li><a href="#">Colecciones</a></li>
+          <li><a href="{{ url_for('store') }}">Tienda</a></li>
           <li><a href="#">Sobre Nosotros</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
@@ -213,6 +219,25 @@
       &copy; 2025 MINIMAL. Todos los derechos reservados.
     </div>
   </footer>
+
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2>Tu Carrito</h2>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-price">$0.00</span>
+      </div>
+      <button class="checkout-btn">Proceder al Pago</button>
+    </div>
+  </div>
+
+  <div class="cart-overlay"></div>
 
   <script src="{{ url_for('static', filename='js/store.js') }}"></script>
 </body>
