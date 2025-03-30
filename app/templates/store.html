@@ -95,77 +95,21 @@
 
       <div class="products-grid">
 
+        {% for product in products %}
         <div class="product-card">
           <div class="product-img">
-            <img src="{{ url_for('static', filename='/images/blazer.png') }}" alt="Nike Blazer Mid '77">
+            <img src={{product.imageURL}} alt="Nike Blazer Mid '77">
             <div class="quick-view">Vista Rápida</div>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Nike Blazer Mid '77</h3>
+            <h3 class="product-title">{{product.name}}</h3>
             <div class="product-price">
-              <span>$89.99</span>
+              <span>${{product.price}} MXN</span>
               <span class="add-to-cart">+</span>
             </div>
           </div>
         </div>
-
-        <div class="product-card">
-          <div class="product-img">
-            <img src="{{ url_for('static', filename='/images/BarcelonaJersey.png') }}"  alt="FC Barcelona local 2024/25 Stadium">
-            <div class="quick-view">Vista Rápida</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">FC Barcelona local 2024/25 Stadium</h3>
-            <div class="product-price">
-              <span>$129.99</span>
-              <span class="add-to-cart">+</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Repeat product cards to fill the grid -->
-        <div class="product-card">
-          <div class="product-img">
-            <img src="{{ url_for('static', filename='/images/off-white-woolgab-slim-cargo.png') }}"  alt="woolgab slim cargo">
-            <div class="quick-view">Vista Rápida</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Woolgab slim cargo - OffWhite</h3>
-            <div class="product-price">
-              <span>$209.99</span>
-              <span class="add-to-cart">+</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img">
-            <img src="{{ url_for('static', filename='/images/off-white-woolgab-slim-cargo.png') }}"  alt="woolgab slim cargo">
-            <div class="quick-view">Vista Rápida</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Woolgab slim cargo - OffWhite</h3>
-            <div class="product-price">
-              <span>$209.99</span>
-              <span class="add-to-cart">+</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- More product cards can be added here -->
-      </div>
-
-      <div class="pagination">
-        <button class="prev-page">Anterior</button>
-        <div class="page-numbers">
-          <span class="active">1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-        </div>
-        <button class="next-page">Siguiente</button>
-      </div>
-    </div>
+        {% endfor %}
   </section>
 
   <footer>
