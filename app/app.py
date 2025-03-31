@@ -14,7 +14,7 @@ from flask import Flask, abort, redirect, render_template, request, url_for, ses
 import psycopg2
 from db.db_actions import get_products, create_product, edit_product, delete_product
 
-app = Flask(__name__)   
+app = Flask(__name__)
 
 app.secret_key = "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"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
